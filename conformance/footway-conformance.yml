@@ -1,0 +1,37 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  footway.com /.well-known/openid-configuration, /.well-known/oauth-authorization-server,
+  /.well-known/ucp, /llms.txt
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OAuth 2.0 Authorization Server Metadata published at /.well-known/oauth-authorization-server (RFC 8414)
+- id: oidc
+  conforms: true
+  evidence: OpenID Connect discovery document published at /.well-known/openid-configuration
+- id: oauth2-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256
+- id: rfc8414-oauth-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns Authorization Server Metadata
+- id: ucp
+  conforms: true
+  evidence: Universal Commerce Protocol merchant profile at /.well-known/ucp (versions 2026-04-08, 2026-01-23)
+- id: mcp
+  conforms: true
+  evidence: UCP MCP transport endpoint advertised at /api/ucp/mcp (dev.ucp.shopping service, transport mcp)
+- id: llms-txt
+  conforms: true
+  evidence: /llms.txt and /agents.md agent-discovery documents published
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404
+- id: rfc9727-api-catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returns 404
+- id: fhir
+  conforms: false
+- id: fapi
+  conforms: false

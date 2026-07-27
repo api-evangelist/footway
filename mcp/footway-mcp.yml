@@ -1,0 +1,52 @@
+generated: '2026-07-19'
+method: searched
+status: published
+source: https://footway.com/llms.txt
+source_discovery: https://footway.com/.well-known/ucp
+server:
+  name: footway-ucp-commerce
+  description: >-
+    Universal Commerce Protocol (UCP) MCP endpoint for the footway.com Shopify
+    storefront. Agents use it for buyer-approved, agent-driven commerce:
+    catalog search, cart creation, and checkout. Checkout requires explicit,
+    contemporaneous buyer approval of payment; agents that cannot obtain it are
+    directed to route purchases through Shop Pay via https://shop.app/SKILL.md.
+  transport: mcp
+  endpoint: https://footway.com/api/ucp/mcp
+  upstream_endpoint: https://waylet-com.myshopify.com/api/ucp/mcp
+  protocol: Universal Commerce Protocol (UCP)
+  supported_versions:
+  - '2026-04-08'
+  - '2026-01-23'
+  spec: https://ucp.dev/2026-04-08/specification/overview/
+  schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+  auth: Shopify Customer Account OIDC/OAuth 2.0 (see authentication/footway-authentication.yml)
+  notes: >-
+    The endpoint requires a UCP agent-profile handshake (a profile URI) before
+    tools/list; an unauthenticated tools/list returns UCP error invalid_profile_url.
+    The tools below are the buyer-facing UCP shopping tools the store documents in
+    its own /llms.txt "Typical Agent Flow" and advertises as capabilities in
+    /.well-known/ucp.
+tools:
+- name: search_catalog
+  description: Find products matching the buyer's intent (dev.ucp.shopping.catalog.search)
+- name: create_cart
+  description: Create a cart and add desired items (dev.ucp.shopping.cart)
+- name: create_checkout
+  description: Start the purchase flow from a cart (dev.ucp.shopping.checkout)
+- name: update_checkout
+  description: Set shipping address and method on a checkout (dev.ucp.shopping.fulfillment)
+- name: complete_checkout
+  description: Finalize the purchase; buyer must approve payment (dev.ucp.shopping.order)
+capabilities:
+- dev.ucp.shopping.catalog.search
+- dev.ucp.shopping.catalog.lookup
+- dev.ucp.shopping.cart
+- dev.ucp.shopping.checkout
+- dev.ucp.shopping.fulfillment
+- dev.ucp.shopping.discount
+- dev.ucp.shopping.order
+- dev.shopify.catalog
+payment_handlers:
+- com.google.pay
+- dev.shopify.card

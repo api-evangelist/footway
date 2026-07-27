@@ -1,0 +1,13 @@
+generated: '2026-07-19'
+method: generated
+source: https://footway.com/llms.txt
+note: >-
+  Skills are grounded in the UCP shopping tools the footway.com storefront
+  publishes in its own /llms.txt "Typical Agent Flow" and advertises as
+  capabilities in /.well-known/ucp. There is no first-party OpenAPI; operation
+  names are the provider's documented UCP MCP tool names.
+skills:
+- file: footway-agent-purchase.md
+  name: Buy a product on Footway as an agent (UCP)
+  api: mcp/footway-mcp.yml
+  operations: [search_catalog, create_cart, create_checkout, update_checkout, complete_checkout]

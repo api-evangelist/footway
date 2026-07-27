@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: searched
+source: live probes of footway.com /.well-known/ and agent-discovery paths
+host: https://footway.com
+documents:
+- path: /.well-known/ucp
+  description: Universal Commerce Protocol merchant profile (supported versions, services, capabilities, payment handlers)
+  status: 200
+  file: footway-ucp.json
+- path: /.well-known/openid-configuration
+  description: OpenID Connect discovery (Shopify Customer Account authentication)
+  status: 200
+  file: footway-openid-configuration.json
+- path: /.well-known/oauth-authorization-server
+  description: OAuth 2.0 Authorization Server Metadata (RFC 8414)
+  status: 200
+  file: footway-oauth-authorization-server.json
+- path: /agents.md
+  description: Canonical agent-facing description of the store (mirrored by /llms.txt)
+  status: 200
+  file: footway-agents.md
+- path: /llms.txt
+  description: Agent instructions for footway.com (see llms/footway-llms.txt)
+  status: 200
+  file: ../llms/footway-llms.txt
+- path: /.well-known/security.txt
+  description: RFC 9116 security contact
+  status: 404
+- path: /.well-known/api-catalog
+  description: RFC 9727 API catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  description: Legacy ChatGPT plugin manifest
+  status: 404

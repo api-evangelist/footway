@@ -1,7 +1,16 @@
 aid: footway
 name: Footway
-description: 'Footway is a company surfaced as a portfolio company of northzone and added to the API Evangelist
-  network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting the enrichment pipeline.'
+description: >-
+  Footway is a Nordic, data-driven e-commerce group (Nasdaq First North Growth
+  Market, Stockholm) that operates the Footway footwear-and-fashion marketplace
+  across roughly 24 European markets, carrying around 800 brands for more than
+  two million customers, alongside its Operations-as-a-Service ("ECOM IN A BOX")
+  merchant infrastructure at footwayplus.com / oaas.footway.com and a merchant
+  portal at merchant.footwayplus.com. The consumer storefront at footway.com runs
+  on Shopify and exposes an agent-native commerce surface: an llms.txt / agents.md
+  agent guide, a Universal Commerce Protocol (UCP) merchant profile at
+  /.well-known/ucp, a UCP MCP endpoint for buyer-approved agent checkout, and
+  Shopify Customer Account OpenID Connect / OAuth 2.0 authentication.
 url: https://raw.githubusercontent.com/api-evangelist/footway/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,13 +18,60 @@ x-backed-by:
 - northzone
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://footway.com/cdn/shop/files/Namnlos_presentation_4_245a932a-42a0-441f-bdd5-b609ade84b97.svg?v=1744815789
 tags:
 - Company
 - Consumer
-apis: []
+- E-commerce
+- Marketplace
+- Retail
+- Footwear
+- Fashion
+- Shopify
+- Agent Commerce
+- UCP
+- MCP
+- Nordic
+apis:
+- name: Footway Agent Commerce (UCP)
+  description: >-
+    The footway.com storefront's agent-facing commerce surface. Built on Shopify,
+    it implements the Universal Commerce Protocol (UCP) for agent-driven commerce:
+    a UCP merchant profile at /.well-known/ucp advertising catalog search, cart,
+    checkout, fulfillment, discount and order capabilities, and a UCP MCP endpoint
+    (/api/ucp/mcp) that agents call for buyer-approved checkout. Read-only product,
+    collection and search JSON endpoints are available without authentication;
+    authenticated customer flows use Shopify Customer Account OIDC/OAuth 2.0.
+  humanURL: https://footway.com/llms.txt
+  baseURL: https://footway.com
+  properties:
+  - type: LLMsTxt
+    url: llms/footway-llms.txt
+  - type: MCPServer
+    url: mcp/footway-mcp.yml
+  - type: Authentication
+    url: authentication/footway-authentication.yml
+  - type: OAuthScopes
+    url: scopes/footway-scopes.yml
+  - type: Conventions
+    url: conventions/footway-conventions.yml
+  - type: Conformance
+    url: conformance/footway-conformance.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -24,3 +80,40 @@ maintainers:
 common:
 - type: Website
   url: https://www.footway.co.uk
+- type: DeveloperPortal
+  url: https://footway.com/llms.txt
+- type: Documentation
+  url: https://footway.com/agents.md
+- type: MCPServer
+  url: mcp/footway-mcp.yml
+- type: LLMsTxt
+  url: llms/footway-llms.txt
+- type: WellKnown
+  url: well-known/footway-well-known.yml
+- type: Authentication
+  url: authentication/footway-authentication.yml
+- type: OAuthScopes
+  url: scopes/footway-scopes.yml
+- type: Conventions
+  url: conventions/footway-conventions.yml
+- type: Conformance
+  url: conformance/footway-conformance.yml
+- type: DomainSecurity
+  url: security/footway-domain-security.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Support
+  url: https://footway.com/pages/contact
+- type: TermsOfService
+  url: https://footway.com/policies/terms-of-service
+- type: PrivacyPolicy
+  url: https://footway.com/policies/privacy-policy
+- type: SignUp
+  url: https://footway.com/account
+- type: Blog
+  url: https://about.footway.com
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

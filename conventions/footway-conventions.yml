@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: searched
+source: https://footway.com/llms.txt
+description: >-
+  Cross-cutting request/response and agent-interaction semantics for the
+  footway.com Shopify storefront, as documented in its /llms.txt and
+  /.well-known/ucp merchant profile.
+authentication:
+  style: oauth2/oidc (Shopify Customer Account) for authenticated flows; none for read-only catalog JSON
+  ref: authentication/footway-authentication.yml
+agent_commerce:
+  protocol: Universal Commerce Protocol (UCP)
+  discovery: GET https://footway.com/.well-known/ucp
+  mcp_endpoint: POST https://footway.com/api/ucp/mcp (Content-Type application/json)
+  supported_versions: ['2026-04-08', '2026-01-23']
+  buyer_approval_invariant: >-
+    Checkout requires explicit, contemporaneous human/buyer approval of payment.
+    Agents must not complete payment without consent; without contemporaneous
+    approval, route the purchase through Shop Pay via https://shop.app/SKILL.md.
+  buyer_context: Pass context.address_country and context.currency for accurate pricing and availability.
+rate_limiting:
+  documented: true
+  signal: The UCP MCP endpoint is rate-limited per IP; agents must back off on HTTP 429 responses.
+  ref: https://footway.com/llms.txt
+read_only_endpoints:
+  auth_required: false
+  endpoints:
+  - GET /collections/all
+  - GET /products/{handle}
+  - GET /products/{handle}.json
+  - GET /collections/{handle}
+  - GET /collections/{handle}/products.json
+  - GET /search?q={query}&type=product
+  - GET /sitemap.xml
+error_envelope:
+  transport: JSON-RPC 2.0 (UCP MCP); errors returned as {jsonrpc, id, error:{code, message, data}}
+  example_code: invalid_profile_url (UCP discovery failure)
+idempotency:
+  documented: false
+  note: No idempotency-key contract is documented on the storefront's agent surface.
+pagination:
+  style: Shopify storefront collection/product JSON pagination (page/limit query params on *.json endpoints)
+versioning:
+  scheme: date-based UCP protocol versions (e.g. 2026-04-08)
+  ref: https://footway.com/.well-known/ucp
