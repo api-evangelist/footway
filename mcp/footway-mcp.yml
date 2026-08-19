@@ -5,12 +5,10 @@ source: https://footway.com/llms.txt
 source_discovery: https://footway.com/.well-known/ucp
 server:
   name: footway-ucp-commerce
-  description: >-
-    Universal Commerce Protocol (UCP) MCP endpoint for the footway.com Shopify
-    storefront. Agents use it for buyer-approved, agent-driven commerce:
-    catalog search, cart creation, and checkout. Checkout requires explicit,
-    contemporaneous buyer approval of payment; agents that cannot obtain it are
-    directed to route purchases through Shop Pay via https://shop.app/SKILL.md.
+  description: 'Universal Commerce Protocol (UCP) MCP endpoint for the footway.com Shopify storefront.
+    Agents use it for buyer-approved, agent-driven commerce: catalog search, cart creation, and checkout.
+    Checkout requires explicit, contemporaneous buyer approval of payment; agents that cannot obtain it
+    are directed to route purchases through Shop Pay via https://shop.app/SKILL.md.'
   transport: mcp
   endpoint: https://footway.com/api/ucp/mcp
   upstream_endpoint: https://waylet-com.myshopify.com/api/ucp/mcp
@@ -21,12 +19,10 @@ server:
   spec: https://ucp.dev/2026-04-08/specification/overview/
   schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
   auth: Shopify Customer Account OIDC/OAuth 2.0 (see authentication/footway-authentication.yml)
-  notes: >-
-    The endpoint requires a UCP agent-profile handshake (a profile URI) before
-    tools/list; an unauthenticated tools/list returns UCP error invalid_profile_url.
-    The tools below are the buyer-facing UCP shopping tools the store documents in
-    its own /llms.txt "Typical Agent Flow" and advertises as capabilities in
-    /.well-known/ucp.
+  notes: The endpoint requires a UCP agent-profile handshake (a profile URI) before tools/list; an unauthenticated
+    tools/list returns UCP error invalid_profile_url. The tools below are the buyer-facing UCP shopping
+    tools the store documents in its own /llms.txt "Typical Agent Flow" and advertises as capabilities
+    in /.well-known/ucp.
 tools:
 - name: search_catalog
   description: Find products matching the buyer's intent (dev.ucp.shopping.catalog.search)
@@ -50,3 +46,11 @@ capabilities:
 payment_handlers:
 - com.google.pay
 - dev.shopify.card
+deployment:
+  mode: remote
+  endpoint: https://footway.com/api/ucp/mcp
+  verified: probed
+  probe: live
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
