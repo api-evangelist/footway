@@ -43,7 +43,7 @@ accessModel:
   method: derived
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-19'
+modified: '2026-10-06'
 image: https://footway.com/cdn/shop/files/Namnlos_presentation_4_245a932a-42a0-441f-bdd5-b609ade84b97.svg?v=1744815789
 tags:
 - Company
@@ -105,6 +105,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- url: https://about.footway.com/en/news
+  type: Blog
 - type: Website
   url: https://www.footway.co.uk
 - type: DeveloperPortal
