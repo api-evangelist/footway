@@ -64,6 +64,102 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Footway is a company surfaced as a portfolio company of northzone and added to the API Evangelist network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting the enrichment pipeline.
+Footway is a Nordic, data-driven e-commerce group (Nasdaq First North Growth Market, Stockholm) that operates the Footway footwear-and-fashion marketplace across roughly 24 European markets, carrying around 800 brands for more than two million customers, alongside its Operations-as-a-Service ("ECOM IN A BOX") merchant infrastructure at footwayplus.com / oaas.footway.com and a merchant portal at merchant.footwayplus.com. The consumer storefront at footway.com runs on Shopify and exposes an agent-native commerce surface: an llms.txt / agents.md agent guide, a Universal Commerce Protocol (UCP) merchant profile at /.well-known/ucp, a UCP MCP endpoint for buyer-approved agent checkout, and Shopify Customer Account OpenID Connect / OAuth 2.0 authentication.
 
-Backed by: northzone — https://www.footway.co.uk
+**Areas:** Company · Consumer · E-Commerce · Marketplace · Retail · Footwear · Fashion · Shopify · Agentic Commerce · Universal Commerce Protocol · MCP · Nordic
+
+## Footway on APIs.io
+
+Everything profiled for Footway is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/footway/](https://apis.io/providers/footway/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Footway Agent Commerce (UCP)](https://apis.io/apis/footway/footway-agent-commerce-ucp/) — The footway.com storefront's agent-facing commerce surface. Built on Shopify, it implements the Universal Commerce Protocol (UCP) for agent-driven commerce:…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [footway-ucp-commerce](https://apis.io/servers/footway/footway-ucp-commerce/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Footway Authentication](https://apis.io/security/footway/footway-authentication/)
+- [Footway Domain Security](https://apis.io/security/footway/footway-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Footway Scopes](https://apis.io/scopes/footway/footway-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.footway.co.uk)
+- [Documentation](https://footway.com/agents.md)
+- [Sign up](https://footway.com/account)
+- [Support](https://footway.com/pages/contact)
+- [Blog](https://about.footway.com/en/news)
+- [Terms of service](https://footway.com/policies/terms-of-service)
+- [Privacy policy](https://footway.com/policies/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 26.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 37.5 |
+| Access clarity | 34.2 |
+
+**Agent readiness 14.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | platform (partial credit) |
+
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/footway/](https://apis.io/providers/footway/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Footway: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/footway/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
